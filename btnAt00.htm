@@ -1,45 +1,17 @@
 <html>
 <head>
   <style>
-		body { 
-		color: red;
+		body, div { 
 		   margin: 0; 
 		   padding: 0; 
 		}
   </style>
 </head>
 <body>
-  <button onclick="getLocation()" id="get">Where am I?<br> Click to check</button>
-  <button onclick="change()" id="change"> Change API </button>
-  <script>
-  var x=document.getElementById("demo");
-  function getLocation()
-    {
-    if (navigator.geolocation)
-      {
-      navigator.geolocation.getCurrentPosition(showPosition, function(e){alert(e + " " + e.message);});
-	  x.innerHTML= x.innerHTML + "<br> Checking geolocation...";
-      }
-    else{x.innerHTML="Geolocation is not supported by this browser.";}
-    }
-  function showPosition(position)
-    {
-    x.innerHTML= x.innerHTML + "<br>" + "Latitude: <div id='lat-value'>" + position.coords.latitude +
-    "</div><br>Longitude: <div id='long-value'>" + position.coords.longitude +
-    "</div><br>Высота: <div id='att-value'>" + position.coords.altitude +
-    "</div><br>Точность широты и долготы: <div>" + position.coords.accuracy +
-    "</div><br>Точность высоты: <div>" + position.coords.altitudeAccuracy +
-    "</div><br>Направление движения: <div>" + position.coords.heading +
-    "</div><br>Скорость: <div>" + position.coords.speed +
-    "</div><br>Метка времени: <div>" + position.timestamp +
-    "</div><br>Текущее время: <div>" + Date.now() +
-    "</div><br><div id='map-link'><a href='http://maps.google.com/?q=" + position.coords.latitude +
-    "," + position.coords.longitude + "'>See it on Google</a></div>";
-    }
-	function change(){
-		navigator.geolocation.getCurrentPosition = function(callback){alert("No geo");};
-	}
-  </script>
+  <div id="container">
+	  <button onclick="alert('Msg')" id="get">Show some message<br>Please click to try<br>Please</button>
+	  <button onclick="change()" id="change"> Change API </button>
+  </div>
 </body>
 </body>
 </html>
