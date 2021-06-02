@@ -1,0 +1,33 @@
+<html>
+<head>
+  <style>
+		body, div { 
+		   margin: 0; 
+		   padding: 0; 
+		}
+  </style>
+  <script>
+  
+    function init(){
+		let cnv = document.getElementById("cnv");
+		cnv.onclick = cnvClicked;
+	}
+	function cnvClicked(e){
+		let log = document.getElementById("log");
+		log.value = log.value + "\n" + `(${e.clientX};${e.clientY})  (${e.pageX};${e.pageY})   (${e.screenX};${e.screenY})`;
+		//alert(log.innerText);
+	}
+  </script>
+</head>
+<body onload="init();">
+  <div id="container">
+	<div id="cnv" style="width: 300px;background: #333; height: 100px">Data</div>
+	<br>
+	  <button onclick="alert('Msg')" id="get">Show some message<br>Please click to try<br>Please</button>
+	  <button onclick="change()" id="change"> Change API </button>
+	  <br>
+	  <textarea id="log" style="height: 700px; width: 350px">Client - Page  - Screen</textarea>
+  </div>
+
+</body>
+</html>
