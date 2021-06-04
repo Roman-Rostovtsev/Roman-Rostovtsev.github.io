@@ -1,0 +1,30 @@
+<html>
+<head>
+<!--   <style>
+		body, div { 
+		   margin: 0; 
+		   padding: 0; 
+		}
+  </style>
+ -->  
+ <script>
+  
+    function init(){
+		let cnv = document.getElementById("cnv");
+		cnv.onclick = cnvClicked;
+//		cnv = document.getElementById("cnv2");
+//		cnv.onclick = cnvClicked;
+//		cnv = document.getElementById("cnv3");
+//		cnv.onclick = cnvClicked;
+	}
+	function cnvClicked(e){
+		let value = "ID  -  Offset - Client - Page  - Screen\n" + `${this.id}: (${e.offsetX};${e.offsetY})  (${e.clientX};${e.clientY})  (${e.pageX};${e.pageY})   (${e.screenX};${e.screenY})`;
+		
+		alert(value);
+	}
+  </script>
+</head>
+<body onload="init();">
+	<div id="cnv" style="background: #333">Cnv<br>Это очень длинный текст<br>Многострочный даже</div>
+</body>
+</html>
