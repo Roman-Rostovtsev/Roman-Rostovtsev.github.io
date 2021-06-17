@@ -8,25 +8,76 @@
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">  
   <script>
+	let tb1, tb2, memo1, div1;
 	function showEnter(ev){			
 			if(ev.key == 'Enter') alert('Enter'); //else memo1.value = memo1.value + ev.key;
 		
 	}
     function init(){
-		let tb1 = document.getElementById("tb1");
-		let tb2 = document.getElementById("tb2");
-		let memo1 = document.getElementById("memo1");
+		tb1 = document.getElementById("tb1");
+		tb2 = document.getElementById("tb2");
+		div1 = document.getElementById("div1");
+		memo1 = document.getElementById("memo1");
 		tb1.addEventListener("keydown", showEnter);
 		tb2.addEventListener("keydown", showEnter);
+		div1.addEventListener("keydown", function(evt){if(evt.key == 'Enter') alert('Enter'); else memo1.value = memo1.value + evt.key;});
 	}
+	
+	
+  function sendKey(el, k){
+    //alert(el.tagName);
+	el.focus();
+	setTimeout(()=>{
+	let e = new KeyboardEvent("keydown", {
+        'bubbles': true,
+        'cancelable': false,
+		key: k,
+//		code: k, // put everything you need in this object.
+		shiftKey: false, // you don't need to include values
+		ctrlKey: false,  // if you aren't going to use them.
+		metaKey: false   // these are here for example's sake.
+	  });
+	el.dispatchEvent(e);	
+    el.dispatchEvent(new Event('input', {
+        'bubbles': true,
+        'cancelable': false,
+		'data': k
+    }));
+	e = new KeyboardEvent("keyup", {
+        'bubbles': true,
+        'cancelable': false,
+		key: k,
+//		keyCode: k, // example values.
+//		code: "KeyE", // put everything you need in this object.
+		which: 69,
+		shiftKey: false, // you don't need to include values
+		ctrlKey: false,  // if you aren't going to use them.
+		metaKey: false   // these are here for example's sake.
+	  });
+
+	el.dispatchEvent(e);
+    el.dispatchEvent(new Event('change', {
+        'bubbles': true,
+        'cancelable': false
+    }));	
+	}, 1500);
+	};	
   </script>
 </head>
 <body onload="init();">
-	<input type="text" id="tb1"> <br>
+	TextBox: <input type="text" id="tb1"> <br>
  	<form>
-		<input type="text" id="tb2"> <br>
+		TextBox2: <input type="text" id="tb2"> <br>
 	</form>
 
 	<br>
 	<textarea id="memo1"></textarea>
+	<div id="div1"></div>
+	<br>
+	<button onclick="sendKey(div1, 'Q')">Send Q Key to Div</button>
+	<button onclick="sendKey(div1, 'Enter')">Send Enter Key to Div</button>
+	<button onclick="sendKey(tb1, 'Q')">Send Q Key to TextBox</button>
+	<button onclick="sendKey(tb1, 'Enter')">Send Enter Key to TextBox</button>
+	<button onclick="sendKey(tb2, 'Q')">Send Q Key to TextBox2</button>
+	<button onclick="sendKey(tb2, 'Enter')">Send Enter Key to TextBox2</button>
  </body>
