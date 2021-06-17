@@ -9,20 +9,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">  
   <script>
 	function showEnter(ev){			
-			if(ev.key == 'Enter') alert('Enter'); 
-		}
+			if(ev.key == 'Enter') alert('Enter'); //else memo1.value = memo1.value + ev.key;
+		
 	}
     function init(){
 		let tb1 = document.getElementById("tb1");
 		let tb2 = document.getElementById("tb2");
-		tb1.onkeydown = showEnter;
-		tb2.onkeydown = showEnter;
+		let memo1 = document.getElementById("memo1");
+		tb1.addEventListener("keydown", showEnter);
+		tb2.addEventListener("keydown", showEnter);
 	}
   </script>
 </head>
 <body onload="init();">
 	<input type="text" id="tb1"> <br>
-	<form>
+ 	<form>
 		<input type="text" id="tb2"> <br>
 	</form>
-</body>
+
+	<br>
+	<textarea id="memo1"></textarea>
+ </body>
