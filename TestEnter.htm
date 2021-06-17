@@ -1,0 +1,24 @@
+<html>
+<head>
+  <style>
+		body, div { 
+		   margin: 0; 
+		   padding: 0; 
+		}
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <script>
+  
+    function init(){
+		let tb1 = document.getElementById("tb1");
+		let memo1 = document.getElementById("memo1");
+		tb1.onkeydown = function(ev){			
+			if(ev.key == 'Enter') alert('Enter'); else memo1.value = memo1.value + ev.key;
+		}
+	}
+  </script>
+</head>
+<body onload="init();">
+	<input type="text" id="tb1"> <br>
+	<textarea id="memo1"></textarea>
+</body>
