@@ -7,38 +7,38 @@
 		}
   </style>
 <!--   <meta name="viewport" content="width=device-width, initial-scale=1">  
--->
+ -->
   <script>
   
     function init(){
-		let cnv = document.getElementById("cnv");
-		cnv.onclick = cnvClicked;
-		cnv = document.getElementById("cnv2");
-		cnv.onclick = cnvClicked;
+		let cnv = document.getElementById("cnv2");
+		cnv.onclick = elClicked;
 		cnv = document.getElementById("cnv3");
-		cnv.onclick = cnvClicked;
+		cnv.onclick = elClicked;
+		let cnt = document.getElementById("mainContainer");
+		cnt.onclick = elClicked;
 	}
-	function cnvClicked(e){
+	function elClicked(e){
+	    if(e.target.id === "log") return; 
 		let log = document.getElementById("log");
-		log.value = log.value + "\n" + `${this.id}: (${e.offsetX};${e.offsetY})  (${e.clientX};${e.clientY})  (${e.pageX};${e.pageY})   (${e.screenX};${e.screenY})`;
+		log.value = log.value + "\n" + `${e.target.id}: (${e.offsetX};${e.offsetY}) - (${e.clientX};${e.clientY}) - (${e.pageX};${e.pageY}) -  (${e.screenX};${e.screenY})`;
 		//alert(log.innerText);
 	}
   </script>
 </head>
 <body onload="init();">
   <div id="mainContainer">
-	  <h4>Check scrolling</h4><br>
-	  
-	  <div id="container">
-		<div id="cnv" style="width: 300px;background: #eee; height: 100px">Cnv<p>First</div>
-		<br>
-		  <button onclick="alert('Msg')" id="get">Show some message<br>Please click to try<br>Please</button>
-		  <button onclick="change()" id="change"> Change API </button>
-		  <br>
-		  <textarea id="log" style="height: 800px; width: 350px"> ID  -  Offset - Client - Page  - Screen</textarea>
-		  <br>
-		  Some text
-	  </div>
+    <h4>Check scrolling</h4><br>
+    <div id="container">
+	  <div id="cnv" style="width: 300px;background: #eee; height: 100px">Cnv<p id="cnv_p">First</div>
+	  <br>
+	  <button onclick="alert('Msg')" id="get">Show some message<br>Please click to try<br>Please</button>
+	  <button onclick="change()" id="change"> Change API </button>
+	  <br>
+	  <textarea id="log" style="height: 350px; width: 350px"> ID  :  Offset - Client - Page  - Screen</textarea>
+	  <br>
+	  Some text
+	</div>
   </div>
   <div id="cnv2" style="width: 600px; background: #dff; height: 100px; position: absolute; top: 1315px; left: 0px">Cnv2<br>Second</div>
   <div id="cnv3" style="width: 700px; background: #F0C0FF; height: 200px; position: absolute; top: 1415px; left: 600px; outline: green solid 23px; padding: 10px">Cnv3<br>(Third)</div>
