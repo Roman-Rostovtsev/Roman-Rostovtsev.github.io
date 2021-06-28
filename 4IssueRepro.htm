@@ -1,0 +1,32 @@
+<html>
+<head>
+  <style>
+		div { 
+		   margin: 0; 
+		   padding: 0; 
+		}
+  </style>
+<!--   <meta name="viewport" content="width=device-width, initial-scale=1">  
+ -->
+  <script>
+  
+    function init(){
+		let cnt = document.getElementById("container");
+		cnt.onclick = elClicked;
+	}
+	function elClicked(e){
+	    if(e.target.id === "log") return; 
+		let log = document.getElementById("log");
+		log.value = log.value + "\n" + `${e.target.id}: (${e.offsetX};${e.offsetY}) - (${e.clientX};${e.clientY}) - (${e.pageX};${e.pageY}) -  (${e.screenX};${e.screenY})`;
+	}
+  </script>
+</head>
+<body onload="init();">
+    <div id="container">
+	  <div id="cnv" style="width: 300px;background: #eee; height: 100px">CNV</div>
+	  <br>
+	  <textarea id="log" style="height: 700px; width: 350px"> ID  :  Offset - Client - Page  - Screen</textarea>
+	</div>
+  </div>
+</body>
+</html>
