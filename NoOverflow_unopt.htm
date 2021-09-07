@@ -24,8 +24,9 @@
 		let lastObj = document.getElementById("lastObj");
 		let lastX = document.getElementById("lastX");
 		let lastY = document.getElementById("lastY");
-		if(e.target.id !== "log") log.value = log.value + "\n" + `${e.target.id}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
-		lastObj.value = e.target.id ? e.target.id : "_" + e.target.tagName;
+		let targetEl = e.target.id ? e.target.id : "_" + e.target.tagName;
+		if(e.target.id !== "log") log.value = log.value + "\n" + `${targetEl}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
+		lastObj.value = targetEl;
 		lastX.value = e.offsetX;
 		lastY.value = e.offsetY;		
 	}
