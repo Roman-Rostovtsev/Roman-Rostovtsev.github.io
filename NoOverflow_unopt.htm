@@ -19,14 +19,13 @@
 		*/
 		document.body.onclick = elClicked;
 	}
-	function elClicked(e){
-	    if(e.target.id === "log") return; 
+	function elClicked(e){	    
 		let log = document.getElementById("log");
 		let lastObj = document.getElementById("lastObj");
 		let lastX = document.getElementById("lastX");
 		let lastY = document.getElementById("lastY");
-		log.value = log.value + "\n" + `${e.target.id}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
-		lastObj.value = e.target.id;
+		if(e.target.id !== "log") log.value = log.value + "\n" + `${e.target.id}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
+		lastObj.value = e.target.id ? e.target.id : "_" + e.target.tagName;
 		lastX.value = e.offsetX;
 		lastY.value = e.offsetY;		
 	}
