@@ -1,8 +1,8 @@
 <html>
 <head>
   <style>
-		div{ 
-		   padding: 0px; 
+		div, form{ 
+		   padding: 0px; margin: 0px
 		}
   </style>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1">   -->
@@ -34,35 +34,38 @@
 </head>
 <body onload="init();" id="body">
   <div id="mainContainer">
-    <h4>Check scrolling</h4><br>
+    <div style="height: 100px"><h4>Check scrolling</h4></div>
     <div id="container">
-	  <div id="area1" style="width: 250px;background: #eee; height: 100px"><span id="area1_sp">Area 1</span><br><b id="area1_b">First</b></div>
-	  <button id="showMsg">Show some message<br>Please click to try<br>Please</button>	  
-	  <br>
-	  <span id="agree">Do you agree?</span>
-  	  <button onclick="change()" id="yes" style="width: 100px">Yes</button>
-	  <button onclick="change()" id="no" style="width: 100px">No</button>
-	  <br>
+	  <div id="area1" style="width: 250px;background: #eee; height: 100px"><span id="area1_sp">Area 1</span><br>100<b id="area1_b">First</b></div>
+	  <div style="height: 150px">200
+		  <button id="showMsg">Show some message<br>Please click to try<br>Please</button>	  
+		  <br>
+		  <span id="agree">Do you agree?</span>
+		  <button onclick="change()" id="yes" style="width: 100px">Yes</button>
+		  <button onclick="change()" id="no" style="width: 100px">No</button>
+		  <br>
+	  </div>
 	  <textarea id="log" style="height: 350px; width: 325px"> ID  :  Offset - Client - Page - Screen</textarea>
-	  <br>
-	  Some text
+	  <div style="height: 50px">
+		700. Some text
+	  </div>
 	</div>
   </div>
-  <form id="lastResult">
+  <form id="lastResult" style="height: 500px">750
 	<input id="lastObj" type="text">
 	<input id="lastX" type="text">
 	<input id="lastY" type="text">
   </form>
   <div id="area2" style="width: 300px; background: #dff; height: 100px">
-    <span id="area2_sp">Area2</span><br>
+    <span id="area2_sp">Area2</span><br>1250
 	<p id="area2_p" style="text-align: right; padding: 0px"><b id="area2_b">Second</b></p>
   </div>
-  <div id="area3" style="width: 250px; background: #F0C0FF; height: 200px; position: absolute; left: 50px; top: 1100px; outline: green solid 23px; padding: 10px">
-    <span id="area3_sp">Area3</span><br>
+  <div id="area3" style="width: 250px; background: #F0C0FF; height: 200px; position: absolute; left: 50px; top: 2000px; outline: green solid 23px; padding: 10px">
+    <span id="area3_sp">Area3</span><br>2000
     <p id="area3_p" style="text-align: right"><b id="area3_b">(Third)</b></p>
   </div>
-  <div id="area4" style="width: 250px; background: #FFC0CF; height: 200px; position: absolute; left: 150px; top: 2000px; outline: green solid 23px; padding: 10px">
-    <span id="area4_sp">Area4</span><br>
+  <div id="area4" style="width: 250px; background: #FFC0CF; height: 200px; position: absolute; left: 150px; top: 3000px; outline: green solid 23px; padding: 10px">
+    <span id="area4_sp">Area4</span><br>3000
     <p id="area4_p" style="text-align: right"><b id="area4_b">(4th)</b></p>
   </div>
   <div style="display: block; position: fixed; left: 0; bottom: 0; background: #F0E0D0">
