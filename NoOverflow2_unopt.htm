@@ -20,7 +20,8 @@
 		let cnt = document.getElementById("mainContainer");
 		cnt.onclick = elClicked;
 		*/
-		document.body.onclick = elClicked;
+		document.body.onmousedown = elClicked;
+		//document.body.onclick = elClicked;
 	}
 	function elClicked(e){	    
 		let log = document.getElementById("log");
@@ -28,7 +29,11 @@
 		let lastX = document.getElementById("lastX");
 		let lastY = document.getElementById("lastY");
 		let targetEl = e.target.id ? e.target.id : "_" + e.target.tagName;
-		if(e.target.id !== "log") log.value = log.value + "\n" + `${targetEl}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
+		let btn = e.button;
+		if(btn == 0) btn = "";
+		if(btn == 1) btn = "(M) ";
+		if(btn ==  2) btn = "(R) ";
+		if(e.target.id !== "log") log.value = log.value + "\n" + `${btn}${targetEl}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
 		lastObj.value = targetEl;
 		lastX.value = e.offsetX;
 		lastY.value = e.offsetY;		
@@ -39,8 +44,8 @@
   <div id="mainContainer">
     <div style="height: 100px"><h4>Check scrolling</h4></div>
     <div id="container">
-	  <div id="area1" style="width: 250px;background: #eee; height: 100px"><span id="area1_sp">Area 1</span><br>100<br><b id="area1_b">First</b></div>
-	  <div style="height: 150px">200<br>
+	  <div id="area1" style="width: 250px;background: #eee; height: 100px"><span id="area1_sp">Area 1</span><br>100-200<br><b id="area1_b">First</b></div>
+	  <div style="height: 150px">200-350<br>
 		  <button id="showMsg">Show some message<br>Please click to try<br>Please</button>	  
 		  <br>
 		  <span id="agree">Do you agree?</span>
@@ -50,7 +55,7 @@
 	  </div>
 	  <textarea id="log" style="height: 350px; width: 325px"> ID  :  Offset - Client - Page - Screen</textarea>
 	  <div style="height: 50px">
-		700. Some text
+		700-750. Some text
 	  </div>
 	</div>
   </div>
