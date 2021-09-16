@@ -62,7 +62,7 @@
     }, false);
 
     document.addEventListener("dragstart", function( event ) {
-        if(event.target.id == "draggable") return;
+        if(event.target.id != "draggable") return;
 		// store a ref. on the dragged elem
         dragged = event.target;
         // make it half transparent
