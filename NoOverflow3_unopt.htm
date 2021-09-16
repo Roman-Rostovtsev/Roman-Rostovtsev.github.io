@@ -62,7 +62,8 @@
     }, false);
 
     document.addEventListener("dragstart", function( event ) {
-        // store a ref. on the dragged elem
+        if(event.target.id == "draggable") return;
+		// store a ref. on the dragged elem
         dragged = event.target;
         // make it half transparent
         event.target.style.opacity = .5;
@@ -138,7 +139,7 @@
     <div class="dropzone" id="drop1">1100-1140
       <span id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
           This span is draggable
-      </div>
+      </span>
     </div>
     <div class="dropzone" id="drop2">1150-1190</div>
     <div id="area2" style="width: 300px; background: #dff; height: 100px">
