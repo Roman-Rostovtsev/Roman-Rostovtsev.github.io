@@ -9,27 +9,35 @@
   <script>
   
     function init(){
+		/*
 		let area = document.getElementById("area2");
 		area.onclick = elClicked;
 		area = document.getElementById("area3");
 		area.onclick = elClicked;
 		let cnt = document.getElementById("mainContainer");
 		cnt.onclick = elClicked;
+		*/
+		document.documentElement.onclick = elClicked;
+		//document.body.onclick = elClicked;
 	}
-	function elClicked(e){
-	    if(e.target.id === "log") return; 
+	function elClicked(e){	    
 		let log = document.getElementById("log");
 		let lastObj = document.getElementById("lastObj");
 		let lastX = document.getElementById("lastX");
 		let lastY = document.getElementById("lastY");
-		log.value = log.value + "\n" + `${e.target.id}: (${e.offsetX};${e.offsetY}) - (${e.clientX};${e.clientY}) - (${e.pageX};${e.pageY}) -  (${e.screenX};${e.screenY})`;
-		lastObj.value = e.target.id;
+		let targetEl = e.target.id ? e.target.id : "_" + e.target.tagName;
+		let btn = e.button;
+		if(btn == 0) btn = "";
+		if(btn == 1) btn = "(M) ";
+		if(btn ==  2) btn = "(R) ";
+		if(e.target.id !== "log") log.value = log.value + "\n" + `${btn}${targetEl}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
+		lastObj.value = targetEl;
 		lastX.value = e.offsetX;
 		lastY.value = e.offsetY;		
 	}
   </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="body">
   <div id="mainContainer">
     <h4>Check scrolling</h4><br>
     <div id="container">
