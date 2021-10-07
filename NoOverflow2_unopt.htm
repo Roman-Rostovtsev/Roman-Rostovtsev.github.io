@@ -38,6 +38,11 @@
 		lastX.value = e.offsetX;
 		lastY.value = e.offsetY;		
 	}
+	function onPolicyClick(){
+		let log = document.getElementById("log");
+		log.value = log.value + "\nWe did not expect it! Nobody clicks here!"; 
+	}
+	
   </script>
 </head>
 <body onload="init();" id="body">
@@ -78,7 +83,7 @@
   </div>
   <div style="display: block; position: fixed; left: 0; bottom: 0; background: #F0E0D0">
 	<div style="display: flex; flex-wrap: wrap" id="cookie">
-		<div id="warn" style="margin-top: 18px; margin-bottom: 10px; padding-left: 10px; display: block">By continuing to browse, you consent to our use of cookies. <br> Please refer to our <a href="/privacy/index.htm" target="blank" id="policy">Privacy Policy</a>.</div>
+		<div id="warn" style="margin-top: 18px; margin-bottom: 10px; padding-left: 10px; display: block">By continuing to browse, you consent to our use of cookies. <br> Please refer to our <a href="javascript:void(0)" onclick="onPolicyClick()" id="policy">Privacy Policy</a>.</div>
 		<div style="display: block; position: relative; left: 8px; bottom: 5px" id="okCnt"><button style="margin: 15px; display: block" id="agree">Agree</button></div>
 	</div>
   </div>
