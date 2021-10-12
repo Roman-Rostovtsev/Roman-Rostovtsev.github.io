@@ -1,0 +1,74 @@
+<html>
+<head>
+  <style>
+		div, span { 
+		   margin: 0; 
+		   padding: 0; 
+		}
+		
+		button{
+			margin: 20px
+		}
+        
+  </style>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1">   -->
+  <script>
+	function elClicked(e){
+	  let lastBtn = document.getElementById("lastObj");
+	  lastBtn.value = e.target.id ? e.target.id : "(none)";
+	}
+    function init(){
+		let el = document.getElementById("head");
+		el.onclick = elClicked;
+		el = document.getElementById("footer");
+		el.onclick = elClicked;
+	}
+  </script>
+</head>
+<body onload="init();">
+<div id="head">
+	<button id="try">Try TC</button>
+	<button id="buy">Buy TC</button>
+	<form>
+		Type your email to get news: <input id="email" type="text"><button id="send">Send</button>
+	</form>
+</div>
+<div>
+		<h1>About TestComplete</h1>
+<p>TestComplete is an automated testing environment for a wide range of application types and technologies, including (but not limited to) Windows, .NET, WPF, Visual C++, Visual Basic, Delphi, C++Builder, Java and Web applications and services.</p><p>TestComplete is oriented equally to functional and unit testing. It provides superior support for daily regression testing and supports many other kinds of testing: data-driven testing, distributed testing, and others.</p>
+<p>You create tests by recording them or editing test commands in TestComplete panels and editors. Tests can be run from within TestComplete or they can be exported to an external application and run there.</p>
+<p>TestComplete recognizes objects and controls in tested applications and offers special commands for simulating user actions with them. It also offers specific checkpoints that let you easily verify the application state during the test run.</p>
+<p>If the built-in means are insufficient for simulating user actions on the tested application or checking the application state, you can take advantage of accessing the application’s internal objects, methods and properties to perform the needed tasks.</p>
+		<h3>An example of a web page which can be tested by TC</h3>
+		<p> It is below:</p>
+		<iframe id="frm" src="Overflow_unopt.htm" width="360" height="580"></iframe>
+<p style="margin-top : 32px; text-align : justified; ">If you are new to TestComplete, see <b><a href="../tutorials/getting-started/index.html">Getting Started</a></b> to learn how to use the product.</p>
+<p style="margin-top : 32px; text-align : justified; ">To get to know basic concepts, please read <b><a href="../tutorials/getting-started/intro/index.html">Introducing Automated Testing and TestComplete</a></b> (this section is part of the <i>Getting Started</i> section).</p>
+<p style="margin-top : 32px; text-align : justified; ">To learn more about new features, review <b><a href="whats-new.html">What’s New</a></b>.</p>
+<h1>Supported Development Tools</h1>
+<p>“<i>Will TestComplete test my application?</i>” -- This is probably one of the first questions our clients ask about TestComplete. As a matter of fact, TestComplete does not depend on any development tool. It can simulate user actions (keystrokes, mouse movements and clicks) under <b>any application</b> no matter whether this application was created in C#, Visual C++, Delphi or Java. However, in most cases, this kind of testing (testing via GUI) cannot provide reliable and thorough results. Quite often, QA engineers need access to the application internal objects, methods and properties. This is required, for example, for unit testing. You can get this access using TestComplete. It can “open” internal objects, methods and properties up to <i>private</i> object elements in the application under test.</p>
+<p>Below is a list of major development tools, software platforms and application types supported by TestComplete.</p>
+<h3>Desktop</h3>
+<p>All existing .NET compilers. For instance:</p>
+
+<p>    Microsoft: Visual C#, Visual Basic .NET and Visual C++ .NET (managed code) ver. 7.0 - 16.0, JScript .NET
+    Note: 	Visual Studio ver. 8.0 only with Service Pack 1 installed</p>
+
+<p>    Non-Microsoft: Borland C#Builder, Borland Delphi for .NET (Delphi 8, Delphi 2005 and 2006), CodeGear Delphi 2007 for .NET, Sybase PowerBuilder .NET 12, Python .NET, Cobol .NET, and others</p>
+
+<p>TestComplete supports applications created for .NET Framework ver. 2.0 - 4.8</p>
+	<p>Microsoft Visual C++ (unmanaged code) ver. 7.0 - 16.0</p>
+<p>Note: 	Visual Studio ver. 8.0 only with Service Pack 1 installed</p>
+<p>	Intel C++ Compiler 11.0.066 </p>
+<p>	64-bit .NET, Java, Delphi, C++Builder, Windows and Qt applications (see Testing 64-bit Applications)</p>
+<p>	Microsoft Visual Basic 6.0</p>
+</div>
+<div id="footer">
+	<button id="prev">Go to previous chapters</button>
+	<button id="next">Go to next chapters</button>
+</div>
+<form id="lastResult">
+	<input type="text" id="lastObj">
+</form>
+
+</body>
