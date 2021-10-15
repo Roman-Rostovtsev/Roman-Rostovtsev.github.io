@@ -15,14 +15,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">  
   <script>
 	function elClicked(e){
-	  let lastBtn = document.getElementById("lastBtn");
-	  lastBtn.value = e.target.id ? e.target.id : "(none)";
+		let lastBtn = document.getElementById("lastRootObj");
+		if(lastBtn){
+			lastBtn.value = e.target.id ? e.target.id : "_" + e.target.tagName;
+		}
+		else{
+			lastBtn.value = "(none)";
+		}
 	}
     function init(){
-		let el = document.getElementById("head");
-		el.onclick = elClicked;
-		el = document.getElementById("footer");
-		el.onclick = elClicked;
+		document.documentElement.onclick = elClicked;
 	}
   </script>
 </head>
@@ -65,7 +67,7 @@
 	<button id="prev">Go to previous chapters</button>
 	<button id="next">Go to next chapters</button>
 </div>
-<form>
-	<input type="text" id="lastBtn">
+<form id="lastRootResult">
+	<input type="text" id="lastRootObj">
 </form>
 </body>
