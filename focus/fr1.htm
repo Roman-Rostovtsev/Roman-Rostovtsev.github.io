@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script>
+	  function init(){
+	    const host = document.getElementById("shHost");
+		const shadow = host.attachShadow({mode: 'open'});
+		shadow.innerHTML = '<div id="shRoot" style="background: #fdf"> <form id="shForm"> <input id="shText" type="text"><p><button>Sh</button></form><p><!-- <iframe id="shFrm" src="shfr.htm"></iframe>--></div>';
+	  }
+	</script>
 </head>
-<body>
+<body onload="init()">
 	<form>
 			1: <input id="f1t1" type="text">
 			
 			2: <input id="f1t2" type="text">
+<label for="pet-select1">Choose a pet:</label>
+ 
+<select name="pets" id="pet-select1">
+    <option value="">--Please choose an option--</option>
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+    <option value="hamster">Hamster</option>
+    <option value="parrot">Parrot</option>
+    <option value="spider">Spider</option>
+    <option value="goldfish">Goldfish</option>
+</select>
+    <div id="shHost"></div>
 
 	</form>
 </body>
