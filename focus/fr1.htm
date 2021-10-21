@@ -5,7 +5,7 @@
 	  function init(){
 	    const host = document.getElementById("shHost");
 		const shadow = host.attachShadow({mode: 'open'});
-		shadow.innerHTML = '<div id="shRoot" style="background: #fdf"> <form id="shForm"> <input id="shText" type="text"><p><button>Sh</button></form><p><!-- <iframe id="shFrm" src="shfr.htm"></iframe>--></div>';
+		shadow.innerHTML = '<div id="shRoot" style="background: #fdf"> <form id="shForm"> <input id="shText" type="text"><br><button >Sh</button><br><button onclick="alert(`Btn clicked`)">Btn</button><br><input id="shLog" type="text"> </form> </div>';
 	  }
 	</script>
 </head>
@@ -25,8 +25,8 @@
     <option value="spider">Spider</option>
     <option value="goldfish">Goldfish</option>
 </select>
-    <div id="shHost"></div>
 
 	</form>
+    <div id="shHost"></div>
 </body>
 </html>
