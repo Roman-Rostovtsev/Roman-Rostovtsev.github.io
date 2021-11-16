@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <script>
+  
+    function init(){
+		document.documentElement.onclick = elClicked;
+	}
+	function elClicked(e){	    
+		let log = document.getElementById("log");
+		let lastObj = document.getElementById("lastObj");
+		let lastX = document.getElementById("lastX");
+		let lastY = document.getElementById("lastY");
+		let targetEl = e.target.id ? e.target.id : "_" + e.target.tagName;
+		let btn = e.button;
+		if(btn == 0) btn = "";
+		if(btn == 1) btn = "(M) ";
+		if(btn ==  2) btn = "(R) ";
+		if(e.target.id !== "log") log.value = log.value + "\n" + `${btn}${targetEl}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
+		lastObj.value = targetEl;
+		lastX.value = e.offsetX;
+		lastY.value = e.offsetY;		
+	}
+	function onPolicyClick(){
+		let log = document.getElementById("log");
+		log.value = log.value + "\nOh! We are not ready! Nobody clicks here!"; 
+	}
+  </script>
+</head>
+<body onload="init();">
+  <h3 id="header1">Some test pages</h3>
+<!--   <table id="tbl">
+	<tr>
+	
+	<tr>
+  </table>
+  
+ -->
+   <p><a href="FlowAndFixed.htm" target="blank" id="link1">A page that should fit mobile screen </a></p>
+   <p><a href="NoOverflow2_unopt.htm" target="blank" id="link2">The same but without optimization flag in the header</a></p>
+   <div id="div1">
+		Hope they will help.
+   </div>
+  <textarea id="log" style="height: 300px; width: 325px"> ID  :  Offset - Client - Page - Screen</textarea>
+  <br>
+   <form id="lastResult">
+		<input id="lastObj" type="text">
+		<input id="lastX" type="text">
+		<input id="lastY" type="text">
+    </form>
+	
+</body>
+</html>
