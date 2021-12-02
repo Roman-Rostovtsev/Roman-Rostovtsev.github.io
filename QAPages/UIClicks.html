@@ -11,9 +11,29 @@
 			{
 				document.getElementById("tbxLog").value = elem.id + ".SetText(" + elem.value + ")";
 			}
+    function init(){
+		document.documentElement.onclick = elClicked;
+	}
+	function elClicked(e){	    
+		let log = document.getElementById("log");
+//		let lastObj = document.getElementById("lastObj");
+//		let lastX = document.getElementById("lastX");
+//		let lastY = document.getElementById("lastY");
+		let targetEl = e.target.id ? e.target.id : "_" + e.target.tagName;
+		let btn = e.button;
+		if(btn == 0) btn = "";
+		if(btn == 1) btn = "(M) ";
+		if(btn ==  2) btn = "(R) ";
+		if(e.target.id !== "log") log.value = log.value + "\n" + `${btn}${targetEl}: (${e.offsetX};${e.offsetY})-(${e.clientX};${e.clientY})-(${e.pageX};${e.pageY})-(${e.screenX};${e.screenY})`;
+//		lastObj.value = targetEl;
+//		lastX.value = e.offsetX;
+//		lastY.value = e.offsetY;		
+	}
+	
+			
 		</script>
 	</head>
-<body>
+<body onload="init();">
 	<p>
 		<table id="tblKeys" borderColor=#000000 cellSpacing=0 cellPadding=1 rules=all width="100%" border=1 frame=border>
 			<thead>
@@ -83,16 +103,16 @@
 							<td align=left>&nbsp;<button id="btnRight"  onclick="onButtonClick(this)">Click Me</button>&nbsp;</td>
 						</tr>
 						<tr>
-							<td>&nbsp;</td>
-							<td>&nbsp;Click bottom</td>
-							<td>&nbsp;</td>
+							<td id="td51">&nbsp;</td>
+							<td id="td52">&nbsp;Click bottom</td>
+							<td id="td53">&nbsp;</td>
 						</tr>
 						<tr>
-							<td>&nbsp;</td>
-							<td>
-								<p align=left>&nbsp;<button id="btnBottom"  onclick="onButtonClick(this)">Click Me</button></p>
+							<td id="td61">&nbsp;</td>
+							<td id="td62">
+								<p id="p62" align=left>&nbsp;<button id="btnBottom"  onclick="onButtonClick(this)">Click Me</button></p>
 							</td>
-							<td>&nbsp;</td>
+							<td id="td63">&nbsp;</td>
 						</tr>
 					</tbody>
 				</table>
@@ -100,7 +120,7 @@
 		</p>
 		Events:
 	</p>
-	<textarea id="tbxLog"></textarea>
+	<textarea id="tbxLog"></textarea><textarea id="log" style="height: 200px; width: 325px"></textarea>
 
 </body>
 </html>
